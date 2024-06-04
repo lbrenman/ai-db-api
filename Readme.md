@@ -102,6 +102,14 @@ FROM employees
 INNER JOIN titles ON employees.title = titles.id;
 ```
 
+* Drop Table
+
+For testing error responses
+
+```SQL
+DROP table employees
+```
+
 ![](https://i.imgur.com/9TmjIX6.png)
 
 ## API's
