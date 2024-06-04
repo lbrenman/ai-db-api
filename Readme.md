@@ -163,72 +163,95 @@ INNER JOIN titles ON employees.title = titles.id;
   503
   The server is not ready to handle the request - DB Error
 
-  * Create - `API_CreateEmployee`
+* Create - `API_CreateEmployee`
 
-  `POST /employee`
+`POST /employee`
 
-  ```JSON
-  {
-      "Title": 2,
-      "Name": "Jane Doe",
-      "Email": "jdoe@outlook.com"
-  }
-  ```
+```JSON
+{
+    "Title": 2,
+    "Name": "Jane Doe",
+    "Email": "jdoe@outlook.com"
+}
+```
 
-  Response
+Response
 
-  204
-  <empty>
+204
+<empty>
 
-  503
-  The server is not ready to handle the request - DB Error
+503
+The server is not ready to handle the request - DB Error
 
-  * Create Bulk - `API_CreateEmployees_Bulk`
+* Create Bulk - `API_CreateEmployees_Bulk`
 
-  `POST /employeesbulk`
+`POST /employeesbulk`
 
-  ```JSON
-  [
-      {
-          "Name": "Ossie Farrell",
-          "Email": "ofarrell0@apache.org",
-          "Title": 1
-      },
-      {
-          "Name": "Sam Myhill",
-          "Email": "smyhill1@examiner.com",
-          "Title": 2
-      },
-      .
-      .
-      .
-      {
-          "Name": "Seymour Pyke",
-          "Email": "spyke4@buzzfeed.com",
-          "Title": 3
-      }
-  ]
-  ```
+```JSON
+[
+    {
+        "Name": "Ossie Farrell",
+        "Email": "ofarrell0@apache.org",
+        "Title": 1
+    },
+    {
+        "Name": "Sam Myhill",
+        "Email": "smyhill1@examiner.com",
+        "Title": 2
+    },
+    .
+    .
+    .
+    {
+        "Name": "Seymour Pyke",
+        "Email": "spyke4@buzzfeed.com",
+        "Title": 3
+    }
+]
+```
 
-  Response
+Response
 
-  204
-  <empty>
+204
+<empty>
 
-  503
-  The server is not ready to handle the request - DB Error
+503
+The server is not ready to handle the request - DB Error
 
-  * Delete by Id - `API_DeleteEmployeeById` and `API_CustomQueryDeleteEmployeeById`
+* Delete by Id - `API_DeleteEmployeeById` and `API_CustomQueryDeleteEmployeeById`
 
-  `DELETE /employee/:id`
+`DELETE /employee/:id`
 
-  Response
+Response
 
-  204
-  <empty>
+204
+<empty>
 
-  404
-  No record found
+404
+No record found
 
-  503
-  The server is not ready to handle the request - DB Error
+503
+The server is not ready to handle the request - DB Error
+
+* Put by Id - `API_PUTEmployee`
+
+`PUT /employee/:id`
+
+```JSON
+{
+    "Title": 2,
+    "Name": "Jane Doe",
+    "Email": "jdoe@outlook.com"
+}
+```
+
+Response
+
+204
+<empty>
+
+404
+No record found
+
+503
+The server is not ready to handle the request - DB Error
