@@ -112,6 +112,7 @@ INNER JOIN titles ON employees.title = titles.id;
 
   Response:
 
+  200
   ```JSON
   [
       {
@@ -136,12 +137,16 @@ INNER JOIN titles ON employees.title = titles.id;
   ]
   ```
 
+  503
+  The server is not ready to handle the request - DB Error
+
 * Get By Id - `API_GetEmployeeById`
 
   `GET /employee/:id`
 
   Response:
 
+  200
   ```JSON
   [
       {
@@ -155,6 +160,9 @@ INNER JOIN titles ON employees.title = titles.id;
   ]
   ```
 
+  503
+  The server is not ready to handle the request - DB Error
+
   * Create - `API_CreateEmployee`
 
   `POST /employee`
@@ -166,4 +174,61 @@ INNER JOIN titles ON employees.title = titles.id;
       "Email": "jdoe@outlook.com"
   }
   ```
-  
+
+  Response
+
+  204
+  <empty>
+
+  503
+  The server is not ready to handle the request - DB Error
+
+  * Create Bulk - `API_CreateEmployees_Bulk`
+
+  `POST /employeesbulk`
+
+  ```JSON
+  [
+      {
+          "Name": "Ossie Farrell",
+          "Email": "ofarrell0@apache.org",
+          "Title": 1
+      },
+      {
+          "Name": "Sam Myhill",
+          "Email": "smyhill1@examiner.com",
+          "Title": 2
+      },
+      .
+      .
+      .
+      {
+          "Name": "Seymour Pyke",
+          "Email": "spyke4@buzzfeed.com",
+          "Title": 3
+      }
+  ]
+  ```
+
+  Response
+
+  204
+  <empty>
+
+  503
+  The server is not ready to handle the request - DB Error
+
+  * Delete by Id - `API_DeleteEmployeeById` and `API_CustomQueryDeleteEmployeeById`
+
+  `DELETE /employee/:id`
+
+  Response
+
+  204
+  <empty>
+
+  404
+  No record found
+
+  503
+  The server is not ready to handle the request - DB Error
