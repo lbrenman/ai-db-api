@@ -1,13 +1,19 @@
 # Amplify Integration DB API Project Notes
 
-This project demonstrates how to create powerful APIs that access Database data.
+This readme describes an Amplify Integration project that implements APIs that expose PostgreSQL Database.
+
+The [**Github repo**](https://github.com/lbrenman/ai-db-api) includes the following:
+
+* This readme with instructions for setting up the PostgreSQL Database and how to make the API calls and what to expect for a response
+* An export of the Amplify Integration project that you can import in your tenant
+* An OAS 3.0 Document created in Stoplight
+  * Note that this OAS Doc only defines a subset of the APIs. You will find more in the Amplify Integration project
 
 ## Database Setup
 
-In this section we'll setup two tables, `employees` and `titles` that can be joined
+In this section we'll set up two tables, `employees` and `titles` that can be joined
 
-* I used [**Neon Postgres**](https://neon.tech/) as the Database
-
+* Note that I used [**Neon Postgres**](https://neon.tech/) for the Database
 * Create Tables
 
   ```SQL
@@ -73,13 +79,13 @@ In this section we'll setup two tables, `employees` and `titles` that can be joi
 
 * Modify Row
 
-```SQL
-UPDATE employees
-SET
-    name = 'Leor Brenman'
-WHERE
-    id = 1;
-```
+  ```SQL
+  UPDATE employees
+  SET
+      name = 'Leor Brenman'
+  WHERE
+      id = 1;
+  ```
 
 * Search By Date
 
@@ -89,30 +95,37 @@ WHERE
 
 * Delete Row
 
-```SQL
-DELETE FROM employees
-WHERE id = 4;
-```
+  ```SQL
+  DELETE FROM employees
+  WHERE id = 4;
+  ```
 
 * Join Example
 
-```SQL
-SELECT employees.name AS employee, employees.email, titles.name AS title
-FROM employees
-INNER JOIN titles ON employees.title = titles.id;
-```
+  ```SQL
+  SELECT employees.name AS employee, employees.email, titles.name AS title
+  FROM employees
+  INNER JOIN titles ON employees.title = titles.id;
+  ```
 
-* Drop Table
+  ![Image](https://i.imgur.com/9TmjIX6.png)
 
-For testing error responses
+* Drop Table (for testing error responses)
 
-```SQL
-DROP table employees
-```
+  ```SQL
+  DROP table employees
+  ```
 
-![](https://i.imgur.com/9TmjIX6.png)
+## Amplify Integration Project Setup
 
-## API's
+* Import the API2DB.zip file into your Amplify Integration tenant.
+![Image](https://i.imgur.com/1KOt6CR.png)
+* Update the Connections and Plugs
+* Enable the Integrations and get your HTTP/S Server URL
+* Update the OAS Doc with your HTTP/S Server URL
+* Test your API's
+
+## Calling API's
 
 * Get All - `API_GetAllEmployees`
 

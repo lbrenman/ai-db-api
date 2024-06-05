@@ -1,0 +1,417 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0",
+    "title": "Employee",
+    "description": "Employee API\n\nAn Amplify Integration API that front ends a PostgreSQL employee DB",
+    "termsOfService": "https://github.com/lbrenman",
+    "contact": {
+      "name": "Leor Brenman",
+      "url": "https://github.com/lbrenman",
+      "email": "lbrenman99@hotmail.com"
+    },
+    "license": {
+      "url": "https://github.com/lbrenman",
+      "name": "N/A"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{{YOUR DEPLOYED PROJECT URL}}",
+      "description": "{{YOUR DEPLOYED PROJECT URL DESCRIPTION}} "
+    }
+  ],
+  "paths": {
+    "/employee/{employeeId}": {
+      "get": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Get Employee by Employee Id",
+        "description": "Retrieve the employee with the matching id",
+        "operationId": "get-employee-employeeId",
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "description": "employee id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Id": {
+                        "type": "integer"
+                      },
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Email": {
+                        "type": "string"
+                      },
+                      "Title": {
+                        "type": "integer"
+                      },
+                      "Created_at": {
+                        "type": "string"
+                      },
+                      "Updated_at": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": [
+                      {
+                        "Id": 2,
+                        "Name": "Sam Myhill",
+                        "Email": "smyhill1@examiner.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      }
+                    ]
+                  }
+                },
+                "examples": {
+                  "Get Employee": {
+                    "value": [
+                      {
+                        "Id": 2,
+                        "Name": "Sam Myhill",
+                        "Email": "smyhill1@examiner.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User Not Found"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://demo-design.sandbox.ampint.axwaytest.net:9443",
+            "description": "AI Demo Design Sandbox "
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Update Employee",
+        "description": "Update employee",
+        "operationId": "put-employee-employeeId",
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "description": "employee id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Post the necessary fields for the API to update an existing employee.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Employee"
+              },
+              "examples": {
+                "Update Employee": {
+                  "value": {
+                    "Title": 2,
+                    "Name": "Jane Doe",
+                    "Email": "jdoe@outlook.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "503": {
+            "description": "The server is not ready to handle the request - DB Error"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://demo-design.sandbox.ampint.axwaytest.net:9443",
+            "description": "AI Demo Design Sandbox "
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Delte Employee by Id",
+        "description": "Delte Employee by Id",
+        "operationId": "delete-employee-employeeId",
+        "parameters": [
+          {
+            "name": "employeeId",
+            "in": "path",
+            "description": "employee id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": ""
+          },
+          "404": {
+            "description": "No record found"
+          },
+          "503": {
+            "description": "The server is not ready to handle the request - DB Error"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://demo-design.sandbox.ampint.axwaytest.net:9443",
+            "description": "AI Demo Design Sandbox "
+          }
+        ]
+      }
+    },
+    "/employee": {
+      "post": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Create New Employee",
+        "description": "Create a new employee.",
+        "operationId": "post-employee",
+        "requestBody": {
+          "description": "Post the necessary fields for the API to create a new employee.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Employee"
+              },
+              "examples": {
+                "Create User Jane Doe": {
+                  "value": {
+                    "Title": 2,
+                    "Name": "Jane Doe",
+                    "Email": "jdoe@outlook.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "503": {
+            "description": "The server is not ready to handle the request - DB Error"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://demo-design.sandbox.ampint.axwaytest.net:9443",
+            "description": "AI Demo Design Sandbox "
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "employee"
+        ],
+        "summary": "Get All Employees",
+        "description": "Get all employees",
+        "operationId": "get-employees",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "": {
+                        "$ref": "#/components/schemas/Employee"
+                      }
+                    }
+                  },
+                  "x-examples": {
+                    "Example 1": [
+                      {
+                        "Id": 2,
+                        "Name": "Sam Myhill",
+                        "Email": "smyhill1@examiner.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      },
+                      {
+                        "Id": 3,
+                        "Name": "Vikki Frobisher",
+                        "Email": "vfrobisher2@tinypic.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      },
+                      {
+                        "Id": 4,
+                        "Name": "Luisa O'Mara",
+                        "Email": "lomara3@jigsy.com",
+                        "Title": 1,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      },
+                      {
+                        "Id": 6,
+                        "Name": "Jane Doe",
+                        "Email": "jdoe@outlook.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-04 19:03:31.60519",
+                        "Updated_at": "2024-06-04 19:03:31.60519"
+                      }
+                    ]
+                  }
+                },
+                "examples": {
+                  "Employees": {
+                    "value": [
+                      {
+                        "Id": 2,
+                        "Name": "Sam Myhill",
+                        "Email": "smyhill1@examiner.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      },
+                      {
+                        "Id": 3,
+                        "Name": "Vikki Frobisher",
+                        "Email": "vfrobisher2@tinypic.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      },
+                      {
+                        "Id": 4,
+                        "Name": "Luisa O'Mara",
+                        "Email": "lomara3@jigsy.com",
+                        "Title": 1,
+                        "Created_at": "2024-06-03 20:33:52.060357",
+                        "Updated_at": "2024-06-03 20:33:52.060357"
+                      },
+                      {
+                        "Id": 6,
+                        "Name": "Jane Doe",
+                        "Email": "jdoe@outlook.com",
+                        "Title": 2,
+                        "Created_at": "2024-06-04 19:03:31.60519",
+                        "Updated_at": "2024-06-04 19:03:31.60519"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The server is not ready to handle the request - DB Error"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://demo-design.sandbox.ampint.axwaytest.net:9443",
+            "description": "AI Demo Design Sandbox "
+          }
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "employee",
+      "description": "employee"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Employee": {
+        "type": "object",
+        "title": "User",
+        "description": "Employee",
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "description": "Unique identifier for the given user."
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Email": {
+            "type": "string",
+            "format": "email"
+          },
+          "Title": {
+            "type": "integer",
+            "description": "Foreign key to title object"
+          },
+          "Created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2024-06-03 20:33:52.060357"
+          },
+          "Updated_at": {
+            "type": "string",
+            "description": "The date that the user was created.",
+            "format": "date-time",
+            "example": "2024-06-03 20:33:52.060357"
+          }
+        },
+        "required": [
+          "Name",
+          "Email",
+          "Title"
+        ],
+        "x-examples": {
+          "Alice Smith": {
+            "Id": 2,
+            "Name": "Sam Myhill",
+            "Email": "smyhill1@examiner.com",
+            "Title": 2,
+            "Created_at": "2024-06-03 20:33:52.060357",
+            "Updated_at": "2024-06-03 20:33:52.060357"
+          }
+        }
+      }
+    }
+  }
+}
