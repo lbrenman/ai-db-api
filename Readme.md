@@ -9,6 +9,8 @@ The [**Github repo**](https://github.com/lbrenman/ai-db-api) includes the follow
 * An OAS 3.0 Document created in Stoplight
   * Note that this OAS Doc only defines a subset of the APIs. You will find more in the Amplify Integration project
 
+> Note that this project was created in version Amplify Integration v1.6.1. Major changes in how to use Amplify Integration to create API's using OAS Docs are planned for Amplify Integration v1.8
+
 ## Database Setup
 
 In this section we'll set up two tables, `employees` and `titles` that can be joined
