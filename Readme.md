@@ -13,6 +13,14 @@ The [**Github repo**](https://github.com/lbrenman/ai-db-api) includes the follow
 
 > Note that the methods exposed by the OAS Doc have a Access-Control-Allow-Origin header set to * to overcome CORS errors whrn accessing from a web page but currently only GETs are working from a web page. All are working form CURL, etc....
 
+A demo video of the APIs in action can be found below:
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/GzLiWOQ9wN4)](https://youtu.be/GzLiWOQ9wN4)
+
+A demo video of how the APIs were built can be found below:
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/vCWyU-EWiRU)](https://youtu.be/vCWyU-EWiRU)
+
 ## Database Setup
 
 In this section we'll set up two tables, `employees` and `titles` that can be joined
