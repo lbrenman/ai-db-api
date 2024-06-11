@@ -11,6 +11,8 @@ The [**Github repo**](https://github.com/lbrenman/ai-db-api) includes the follow
 
 > Note that this project was created in version Amplify Integration v1.6.1. Major changes in how to use Amplify Integration to create API's using OAS Docs are planned for Amplify Integration v1.8
 
+> Note that the methods exposed by the OAS Doc have a Access-Control-Allow-Origin header set to * to overcome CORS errors whrn accessing from a web page but currently only GETs are working from a web page. All are working form CURL, etc....
+
 ## Database Setup
 
 In this section we'll set up two tables, `employees` and `titles` that can be joined

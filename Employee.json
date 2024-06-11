@@ -18,7 +18,7 @@
   "servers": [
     {
       "url": "https://{{YOUR DEPLOYED PROJECT URL}}",
-      "description": "{{YOUR DEPLOYED PROJECT URL DESCRIPTION}} "
+      "description": "{{YOUR DEPLOYED PROJECT URL DESCRIPTION}}"
     }
   ],
   "paths": {
