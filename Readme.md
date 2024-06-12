@@ -21,6 +21,12 @@ A demo video of how the APIs were built can be found below:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/vCWyU-EWiRU)](https://youtu.be/vCWyU-EWiRU)
 
+You can read about proxying the API in Amplify Integration [**here**](https://gist.github.com/lbrenman/698d2466f6fdcac3dfee9ba5dbf0e0ed).
+
+You can see how to use the API in an Amplify Integration project using the OAS Doc in the following video demo:
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/hO61kQI4GWo)](https://youtu.be/hO61kQI4GWo)
+
 ## Database Setup
 
 In this section we'll set up two tables, `employees` and `titles` that can be joined
