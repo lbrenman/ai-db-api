@@ -21,6 +21,10 @@ A demo video of how the APIs were built can be found below:
 
 [![](https://markdown-videos-api.jorgenkh.no/youtube/vCWyU-EWiRU)](https://youtu.be/vCWyU-EWiRU)
 
+A demo video of how the OAS Doc was created in Stoplight is shown below:
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/1oyteIsm1pU)](https://youtu.be/1oyteIsm1pU)
+
 You can read about proxying the API in Amplify Integration [**here**](https://gist.github.com/lbrenman/698d2466f6fdcac3dfee9ba5dbf0e0ed).
 
 You can see how to use the API in an Amplify Integration project using the OAS Doc in the following video demo:
