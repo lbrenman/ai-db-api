@@ -28,8 +28,8 @@
           "employee"
         ],
         "summary": "Get Employee by Employee Id",
-        "description": "Retrieve the employee with the matching id",
-        "operationId": "get-employee-employeeId",
+        "description": "Get employee by id",
+        "operationId": "Get employee by id",
         "parameters": [
           {
             "name": "employeeId",
@@ -102,7 +102,7 @@
             }
           },
           "404": {
-            "description": "User Not Found"
+            "description": "Employee Not Found"
           }
         },
         "servers": [
@@ -117,8 +117,8 @@
           "employee"
         ],
         "summary": "Update Employee",
-        "description": "Update employee",
-        "operationId": "put-employee-employeeId",
+        "description": "Update employee by id",
+        "operationId": "Update employee",
         "parameters": [
           {
             "name": "employeeId",
@@ -169,8 +169,8 @@
           "employee"
         ],
         "summary": "Delte Employee by Id",
-        "description": "Delte Employee by Id",
-        "operationId": "delete-employee-employeeId",
+        "description": "Delte employee by id",
+        "operationId": "Delete employee by id",
         "parameters": [
           {
             "name": "employeeId",
@@ -207,8 +207,8 @@
           "employee"
         ],
         "summary": "Create New Employee",
-        "description": "Create a new employee.",
-        "operationId": "post-employee",
+        "description": "Create a new employee",
+        "operationId": "Create employee",
         "requestBody": {
           "description": "Post the necessary fields for the API to create a new employee.",
           "content": {
@@ -217,7 +217,7 @@
                 "$ref": "#/components/schemas/Employee"
               },
               "examples": {
-                "Create User Jane Doe": {
+                "Create employee Jane Doe": {
                   "value": {
                     "Title": 2,
                     "Name": "Jane Doe",
@@ -249,7 +249,7 @@
         ],
         "summary": "Get All Employees",
         "description": "Get all employees",
-        "operationId": "get-employees",
+        "operationId": "Get all employees",
         "responses": {
           "200": {
             "description": "OK",
@@ -366,12 +366,12 @@
     "schemas": {
       "Employee": {
         "type": "object",
-        "title": "User",
+        "title": "Employee",
         "description": "Employee",
         "properties": {
           "Id": {
             "type": "integer",
-            "description": "Unique identifier for the given user."
+            "description": "Unique identifier for the given employee."
           },
           "Name": {
             "type": "string"
@@ -391,7 +391,7 @@
           },
           "Updated_at": {
             "type": "string",
-            "description": "The date that the user was created.",
+            "description": "The date that the employee was created.",
             "format": "date-time",
             "example": "2024-06-03 20:33:52.060357"
           }
@@ -402,7 +402,7 @@
           "Title"
         ],
         "x-examples": {
-          "Alice Smith": {
+          "Sam Myhill": {
             "Id": 2,
             "Name": "Sam Myhill",
             "Email": "smyhill1@examiner.com",
